@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ITI Bus Attendance</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    padding:20px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+    background:
+        linear-gradient(rgba(255,255,255,0.7),
+                        rgba(255,255,255,0.7)),
+        url("bus4.png");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+h2{
+    text-align:center;
+    color:#0d47a1;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+select,input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    border:none;
+    border-radius:8px;
+    background:green;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkgreen;
+}
+
+#msg{
+    text-align:center;
+    color:green;
+    margin-top:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>ITI Bus Attendance</h2>
+
+<label>Student Name</label>
+
+<select id="studentName" onchange="fillData()">
+<option value="">-- Select Your Name --</option>
+
+<option value="Ramandeep Arya">Ramandeep Arya</option>
+<option value="Pratap Patel">Pratap Patel</option>
+<option value="Raghav Singh">Raghav Singh</option>
+<option value="Sakshi Tiwari">Sakshi Tiwari</option>
+<option value="Vivek Kushwaha">Vivek Kushwaha</option>
+<option value="Ayush Sangule">Ayush Sangule</option>
+<option value="Khushi Patel">Khushi Patel</option>
+<option value="Payal Verma">Payal Verma</option>
+<option value="Sonam Savita">Sonam Savita</option>
+<option value="Harish Shukla">Harish Shukla</option>
+<option value="Ranchit Prajapati">Ranchit Prajapati</option>
+<option value="Nitin Barore">Nitin Barore</option>
+<option value="Gourav Barore">Gourav Barore</option>
+<option value="Anuj Verma">Anuj Verma</option>
+<option value="Himanshu Sonone">Himanshu Sonone</option>
+<option value="Mayank Choudhary">Mayank Choudhary</option>
+<option value="Dhruv Vasuniya">Dhruv Vasuniya</option>
+<option value="Shubham Bhawar">Shubham Bhawar</option>
+<option value="Amar Pawar">Amar Pawar</option>
+<option value="Kanha Verma">Kanha Verma</option>
+<option value="Vishnu">Vishnu</option>
+<option value="Raj Ninama">Raj Ninama</option>
+<option value="Ganesh Chouhan">Ganesh Chouhan</option>
+<option value="Sahil Kaushal">Sahil Kaushal</option>
+<option value="Tushar Mukati">Tushar Mukati</option>
+<option value="Abhishek Jariya">Abhishek Jariya</option>
+<option value="Omit Banarasi">Omit Banarasi</option>
+<option value="Kartik Kaushal">Kartik Kaushal</option>
+<option value="Rajtilak Khada">Rajtilak Khada</option>
+<option value="Vishnu Kohali">Vishnu Kohali</option>
+<option value="Priyanshu Pal">Priyanshu Pal</option>
+<option value="Kunaal Jariya">Kunaal Jariya</option>
+<option value="Riya Jariya">Riya Jariya</option>
+<option value="Tilak Chouhan">Tilak Chouhan</option>
+<option value="Himanshu Chouhan">Himanshu Chouhan</option>
+<option value="Devendra Kaushal">Devendra Kaushal</option>
+<option value="Durgesh Kaushal">Durgesh Kaushal</option>
+<option value="Ronit Pardeshi">Ronit Pardeshi</option>
+<option value="Ankush Chouhan">Ankush Chouhan</option>
+<option value="Preet Yadav">Preet Yadav</option>
+<option value="Manik Mourya">Manik Mourya</option>
+<option value="Anushka Rawat">Anushka Rawat</option>
+<option value="Vanshika Rawat">Vanshika Rawat</option>
+<option value="Sharddha Patadkar">Sharddha Patadkar</option>
+<option value="Rupali Patadkar">Rupali Patadkar</option>
+<option value="Harshit Verma">Harshit Verma</option>
+<option value="Surwade Sumita Manohar">Surwade Sumita Manohar</option>
+<option value="Aashi Kaparia">Aashi Kaparia</option>
+<option value="Shivam Ahirwar">Shivam Ahirwar</option>
+<option value="Vikash Kumar">Vikash Kumar</option>
+<option value="Pushpendra Pawar">Pushpendra Pawar</option>
+<option value="Sujal Kasumbale">Sujal Kasumbale</option>
+<option value="Kartik Verma">Kartik Verma</option>
+<option value="Harsh Sahu">Harsh Sahu</option>
+<option value="Omprakash Solanki">Omprakash Solanki</option>
+<option value="Vidip Raje">Vidip Raje</option>
+
+</select>
+
+<label>Address</label>
+<input type="text" id="address" readonly>
+
+<label>Trade</label>
+<input type="text" id="trade" readonly>
+
+<label>Year</label>
+<input type="text" id="year" readonly>
+
+<button onclick="markPresent()">Present</button>
+
+<div id="msg"></div>
+
+</div>
+
+<script>
+const students = {
+    "Ramandeep Arya": {address:"Tihi gaon", trade:"Machinist", year:"1st Year"},
+    "Pratap Patel": {address:"Tihi", trade:"Machinist", year:"2nd Year"},
+    "Raghav Singh": {address:"Tihi", trade:"COPA", year:"1st Year"},
+    "Sakshi Tiwari": {address:"Chinar Park", trade:"COPA", year:"1st Year"},
+    "Vivek Kushwaha": {address:"Chinar Park", trade:"Machinist", year:"2nd Year"},
+    "Ayush Sangule": {address:"Shanti Nagar", trade:"Electrician", year:"1st Year"},
+    "Khushi Patel": {address:"Mhowgaon", trade:"COPA", year:"1st Year"},
+    "Payal Verma": {address:"Mhowgaon", trade:"COPA", year:"1st Year"},
+    "Sonam Savita": {address:"Mhowgaon", trade:"COPA", year:"1st Year"},
+    "Harish Shukla": {address:"Dharnaka", trade:"Fitter", year:"2nd Year"}, // यहाँ कोमा जोड़ा गया है
+	"Ranchit Prajapati": {address:"Dharnaka",trade:"Fitter",year:"1st Year"},
+	"Nitin Barore": {address:"Dharnaka",trade:"Fitter",year:"1st year"},
+	"Gourav Barore": {address:"Dharnaka",trade:"Fitter",year:"1st year"},
+	"Anuj Verma": {address:"Dharnaka",trade:"Fitter",year:"2nd Year"},
+	"Himanshu Sonone": {address:"Dharnaka",trade:"Electrician",year:"1st Year"},
+	"Mayank Choudhary": {address:"Dharnaka",trade:"Electrician",year:"1st Year"},
+	"Dhruv Vasuniya": {address:"Gawali Palasiya",trade:"COPA",year:"1st Year"},
+	"Shubham Bhawar": {address:"Gawali Palasiya",trade:"Fitter",year:"2nd Year"},
+	"Amar Pawar": {address:"Gawali Palasiya",trade:"COPA",year:"1st Year"},
+	"Kanha Verma": {address:"jamali",trade:"Fitter",year:"1st Year"},
+	"Vishnu": {address:"Jamali",trade:"Welder",year:"1st Year"},
+	"Raj Ninama": {address:"Jamali",trade:"Fitter",year:"1st Year"},
+	"Ganesh Chouhan": {address:"Kodariya",trade:"Electrician",year:"1st Year"},
+	"Sahil Kaushal": {address:"Kodariya",trade:"Electrician",year:"1st Year"},
+	"Tushar Mukati": {address:"Kodariya",trade:"Electrician",year:"1st Year"},
+	"Abhishek Jariya": {address:"Kodariya",trade:"Electrician",year:"1st Year"},
+	"Omit Banarasi": {address:"Kodariya",trade:"Electrician",year:"1st Year"},
+	"Kartik Kaushal": {address:"Kodariya",trade:"Electrician",year:"1st Year"},
+    "Rajtilak Khada": {address:"Kodariya",trade:"Fitter",year:"2nd Year"},
+    "Vishnu Kohali": {address:"Kodariya",trade:"Welder",year:"2nd Year"},
+    "Priyanshu Pal": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Kunaal Jariya": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Riya Jariya": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Tilak Chouhan": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Himanshu Chouhan": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Devendra Kaushal": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Durgesh Kaushal": {address:"Mhow Satation", trade:"N/A", year:"1st Year"}, // trade जोड़ा गया
+    "Ronit Pardeshi": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Ankush Chouhan": {address:"Mhow Satation",trade:"Electrician",year:"1st Year"},
+    "Preet Yadav": {address:"Mhow Satation",trade:"Machinist",year:"1st Year"},
+    "Manik Mourya": {address:"Mhow Satation",trade:"Fitter",year:"1st Year"},
+    "Anushka Rawat": {address:"Mhow Satation",trade:"COPA",year:"1st Year"},
+    "Vanshika Rawat": {address:"Mhow Satation",trade:"COPA",year:"1st Year"},
+    "Sharddha Patadkar": {address:"Mhow Satation",trade:"COPA",year:"1st Year"},
+    "Rupali Patadkar": {address:"Mhow Satation",trade:"COPA",year:"1st Year"},
+    "Harshit Verma": {address:"Mhow Satation",trade:"Fitter",year:"1st Year"},
+    "Surwade Sumita Manohar": {address:"Mhow Satation", trade:"N/A", year:"1st Year"}, // trade जोड़ा गया
+    "Aashi Kaparia": {address:"Mhow Satation",trade:"COPA",year:"1st Year"},
+    "Shivam Ahirwar": {address:"Mhow Satation",trade:"Machinist",year:"1st Year"},
+    "Vikash Kumar": {address:"Hari Phatak",trade:"COPA",year:"1st Year"},
+    "Pushpendra Pawar": {address:"Hari Phatak",trade:"Fitter",year:"1st Year"},
+    "Sujal Kasumbale": {address:"Hari Phatak", trade:"N/A", year:"1st Year"}, // trade जोड़ा गया
+    "Kartik Verma": {address:"Hari Phatak",trade:"Electrician",year:"1st Year"},
+    "Harsh Sahu": {address:"Hari Phatak",trade:"Welder",year:"1st Year"}, // स्पेलिंग सुधारी गई
+    "Omprakash Solanki": {address:"Kishanganj", trade:"N/A", year:"1st Year"}, // trade जोड़ा गया
+    "Vidip Raje": {address:"Kishanganj",trade:"Fitter",year:"1st Year"}
+};
+
+// नोट: जो छात्र ड्रॉपडाउन में हैं पर ऑब्जेक्ट में नहीं हैं (जैसे Vishnu, Raj Ninama आदि), उनके लिए भी डेटा ऑब्जेक्ट में डालना होगा वरना एरर आएगा।
+
+function fillData(){
+    let name = document.getElementById("studentName").value;
+
+    if(name && students[name]){
+        document.getElementById("address").value = students[name].address || "";
+        document.getElementById("trade").value = students[name].trade || "";
+        document.getElementById("year").value = students[name].year || "";
+    } else {
+        document.getElementById("address").value = "";
+        document.getElementById("trade").value = "";
+        document.getElementById("year").value = "";
+    }
+}
+
+function markPresent(){
+    let name = document.getElementById("studentName").value;
+
+    if(name == ""){
+        alert("Pehle Name Select Kare");
+        return;
+    }
+
+    let now = new Date();
+
+    let data = {
+        name: name,
+        address: students[name].address,
+        trade: students[name].trade,
+        year: students[name].year,
+        date: now.toLocaleDateString("hi-IN"),
+        time: now.toLocaleTimeString("hi-IN"),
+        status: "Present"
+    };
+
+    // संदेश दिखाएं कि रिक्वेस्ट भेजी जा रही है
+    document.getElementById("msg").style.color = "orange";
+    document.getElementById("msg").innerHTML = "Submitting...";
+
+    fetch("https://script.google.com/macros/s/AKfycbw0TW-q4RAbrkqXACyKP4-mze3WvGJkshIxrnjjBG8yktzBc_Ya5lCXqoIpsm979tEG/exec", { // यहाँ अपनी असली Google Web App URL डालें
+        method: "POST",
+        mode: "no-cors", // Google App Script के लिए सामान्यतः इसकी ज़रूरत होती है
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        document.getElementById("msg").style.color = "green";
+        document.getElementById("msg").innerHTML = name + " is present ✅";
+    })
+    .catch(err => {
+        console.error(err);
+        document.getElementById("msg").style.color = "red";
+        document.getElementById("msg").innerHTML = "Error recording attendance ❌";
+    });
+}
+
+</script>
+
+</body>
+</html>
